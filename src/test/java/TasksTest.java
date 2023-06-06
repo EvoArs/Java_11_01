@@ -68,6 +68,7 @@ public class TasksTest {
         boolean actual = meeting.matches(query);
         Assertions.assertEquals(expected, actual);
     }
+
     @Test
     public void testMethodForTheSearchQueryTrueMeetingTopic() {
         Meeting meeting = new Meeting(
