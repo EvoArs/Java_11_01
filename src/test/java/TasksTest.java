@@ -42,7 +42,7 @@ public class TasksTest {
     }
 
     @Test
-    public void testMethodForTheSearchQueryTrueMeeting() {
+    public void testMethodForTheSearchQueryTrueMeetingProject() {
         Meeting meeting = new Meeting(
                 01,
                 "Странная музыка 2000-х",
@@ -56,7 +56,34 @@ public class TasksTest {
     }
 
     @Test
-    public void testMethodForTheSearchQueryFalseMeeting() {
+    public void testMethodForTheSearchQueryFalseMeetingProject() {
+        Meeting meeting = new Meeting(
+                01,
+                "Странная музыка 2000-х",
+                "Пушной как средство от бессонницы",
+                "07.06.2023"
+        );
+        String query = "2024";
+        boolean expected = false;
+        boolean actual = meeting.matches(query);
+        Assertions.assertEquals(expected, actual);
+    }
+    @Test
+    public void testMethodForTheSearchQueryTrueMeetingTopic() {
+        Meeting meeting = new Meeting(
+                01,
+                "Странная музыка 2000-х",
+                "Пушной как средство от бессонницы",
+                "07.06.2023"
+        );
+        String query = "Странная";
+        boolean expected = true;
+        boolean actual = meeting.matches(query);
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void testMethodForTheSearchQueryFalseMeetingTopic() {
         Meeting meeting = new Meeting(
                 01,
                 "Странная музыка 2000-х",
