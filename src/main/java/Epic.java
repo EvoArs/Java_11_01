@@ -11,8 +11,20 @@ public class Epic extends Task {
         super(id);
         this.subtasks = subtasks;
     }
+
     // Добавил геттеры полям
     public String[] getSubtasks() {
         return subtasks;
+    }
+
+    // переопределение метода поиска задачи по поисковому запросу
+    @Override
+    public boolean matches(String query) {
+        for (String subtask : subtasks) {
+            if (subtask.contains(query)) {
+                return true;
+            }
+        }
+        return false;
     }
 }

@@ -17,7 +17,8 @@ public class Meeting extends Task {
         this.project = project;
         this.start = start;
     }
-// Добавил геттеры полям
+
+    // Добавил геттеры полям
     public String getTopic() {
         return topic;
     }
@@ -28,5 +29,17 @@ public class Meeting extends Task {
 
     public String getStart() {
         return start;
+    }
+
+    // переопределение метода поиска задачи по поисковому запросу
+    @Override
+    public boolean matches(String query) {
+        if (topic.contains(query)) {
+            return true;
+        }
+        if (project.contains(query)) {
+            return true;
+        }
+        return false;
     }
 }

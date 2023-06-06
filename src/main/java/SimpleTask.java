@@ -15,4 +15,13 @@ public class SimpleTask extends Task {
     public String getTitle() {
         return title;
     }
+
+    // переопределение метода поиска задачи по поисковому запросу
+    @Override
+    public boolean matches(String query) {
+        if (title.contains(query)) {
+            return true;
+        }
+        return false;
+    }
 }
